@@ -1,0 +1,63 @@
+﻿@model QL_HDPHONGLAB.Models.PHONGLAB
+
+@{
+    ViewBag.Title = "Delete - Phòng LAB";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .body-content {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ff0000;
+        text-align: justify;
+    }
+</style>
+
+<h2>Xóa Phòng LAB</h2>
+
+<h3>Bạn có chắc chắn với sự lựa chọn này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phòng LAB:
+            @*@Html.DisplayNameFor(model => model.TENPHLAB)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENPHLAB)
+        </dd>
+
+        <dt>
+            Địa Điểm:
+            @*@Html.DisplayNameFor(model => model.DIADIEM)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIADIEM)
+        </dd>
+
+        <dt>
+            Ghi Chú:
+            @*@Html.DisplayNameFor(model => model.GHICHU)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input class="btn btn-outline-danger btn-sm" type="submit" value="Xóa"  />
+        </div>
+    }
+</div>
