@@ -1,2 +1,0 @@
-# QLPhongLab
-ASP>NET + SQL SERVER
