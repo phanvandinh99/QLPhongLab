@@ -11,10 +11,11 @@
 
 <style type="text/css">
 
-    #father{
+    #father {
         width: 100%;
         overflow: auto;
     }
+
     table, th, td {
         border: 1px solid #868585;
     }
@@ -56,9 +57,10 @@
         font-size: 18px;
     }
 
-    h3.total{
+    h3.total {
         text-align: center;
     }
+
     .dropdown-divider .nav .nav-item .nav-link {
         display: inline-block;
         -webkit-font-smoothing: antialiased;
@@ -106,6 +108,7 @@
     <div class="button-main">
         <div class="button-dutru">
             <p class="btn btn-outline-primary btn-sm">@Html.ActionLink("Dự Trù", "Index", "DUTRUTHIETBIs")</p>
+            <p onclick="DownloadExcel()" class="btn  btn-success btn-sm">Xuất Thiết Bị</p>
         </div>
         <div class="button-search">
             @using (Html.BeginForm())
@@ -263,7 +266,7 @@
 
         </table>
     </div>
-   
+
     <br />
     <h3 class="total">
         Tổng số lượng tồn: @ViewBag.total
@@ -274,3 +277,19 @@
     @Html.PagedListPager(Model, page => Url.Action("Index",
         new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
+<script>
+
+    function DownloadExcel() {
+        $.ajax({
+            type: "POST",
+            url: "/THIETBIs/ExcelExport",
+            cache: false,
+            success: function (data) {
+                window.location = '/THIETBIs/Download';
+            },
+            error: function (data) {
+                Materialize.toast("Something went wrong. ", 3000, 'rounded');
+            }
+        });
+    }
+</script>  

@@ -32,7 +32,7 @@
             Mã Thiết Bị:
             @*@Html.LabelFor(model => model.MATB, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MATB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MATB, new { htmlAttributes = new { @class = "form-control", required = "required", ReadOnly = "true", @Value = ViewBag.TTMATB } })
                 @Html.ValidationMessageFor(model => model.MATB, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,7 +41,7 @@
             Tên Thiết Bị:
             @*@Html.LabelFor(model => model.TENTB, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TENTB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TENTB, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.TENTB, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
             Qui Cách:
             @*@Html.LabelFor(model => model.QUICACH, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.QUICACH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.QUICACH, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.QUICACH, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +59,7 @@
             Số Lượng Ban Đầu:
             @*@Html.LabelFor(model => model.SLBANDAU, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SLBANDAU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.SLBANDAU, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.SLBANDAU, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,7 +68,7 @@
             Số Lượng Xuất:
             @*@Html.LabelFor(model => model.SLXUAT, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SLXUAT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.SLXUAT, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.SLXUAT, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -77,7 +77,7 @@
             Số Lượng Tồn:
             @*@Html.LabelFor(model => model.SLTON, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SLTON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.SLTON, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.SLTON, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,7 +86,7 @@
             Số Lượng Thanh Lý:
             @*@Html.LabelFor(model => model.SLTON, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SLTHANHLY, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.SLTHANHLY, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.SLTHANHLY, "", new { @class = "text-danger" })
             </div>
         </div>

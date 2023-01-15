@@ -3,7 +3,7 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 <link rel="stylesheet" href="~/Areas/Admin/Content/vendor/iconfonts/mdi/css/materialdesignicons.min.css">
-      @{ ViewBag.Title = "Hóa Chất - TTTNTH"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
+@{ ViewBag.Title = "Hóa Chất - TTTNTH"; Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
 
 <style type="text/css">
 
@@ -53,9 +53,10 @@
         font-size: 18px;
     }
 
-    h3.total{
-        text-align:center;
+    h3.total {
+        text-align: center;
     }
+
     .dropdown-divider .nav .nav-item .nav-link {
         display: inline-block;
         -webkit-font-smoothing: antialiased;
@@ -103,6 +104,9 @@
     <div class="button-main">
         <div class="button-dutru">
             <p class="btn btn-outline-danger btn-sm">@Html.ActionLink("Dự Trù", "Index", "DUTRUHOACHATs")</p>
+            <p onclick="DownloadExcel()" class="btn  btn-success btn-sm">Xuất Hóa Chất</p>
+        </div>
+        <div class="button-dutru">
         </div>
         <div class="button-search">
             @using (Html.BeginForm())
@@ -169,101 +173,101 @@
             @{ var a = 1;}
             @foreach (var item in Model)
             {
-        <tr>
-            <td>@(a++)</td>
-            <td class="dropdown-divider">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#chitiet" aria-expanded="false">
-                            @*<i class="typcn typcn-chevron-left menu-arrow"></i>*@
-                            <span class="menu-title">@Html.DisplayFor(modelItem => item.MAHC)</span>
-                        </a>
-                        <div class="nav">
-                            <div class="nav-item">
-                                <div class="collapse" id="chitiet">
-                                    <h4>CHI TIẾT HÓA CHẤT</h4>
-                                    <table class="nav flex-column sub-menu">
+                <tr>
+                    <td>@(a++)</td>
+                    <td class="dropdown-divider">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#chitiet" aria-expanded="false">
+                                    @*<i class="typcn typcn-chevron-left menu-arrow"></i>*@
+                                    <span class="menu-title">@Html.DisplayFor(modelItem => item.MAHC)</span>
+                                </a>
+                                <div class="nav">
+                                    <div class="nav-item">
+                                        <div class="collapse" id="chitiet">
+                                            <h4>CHI TIẾT HÓA CHẤT</h4>
+                                            <table class="nav flex-column sub-menu">
 
-                                        <tr>
-                                            <th>
-                                                Mã Hoá Chất
-                                            </th>
-                                            <th>
-                                                Tên Hoá Chất
-                                            </th>
-                                            <th>
-                                                Lượng Nhập
-                                            </th>
-                                            <th>
-                                                Lượng Xuất
-                                            </th>
-                                            <th>
-                                                Lượng Tồn
-                                            </th>
-                                            <th>
-                                                Lượng Thanh Lý
-                                            </th>
-                                        </tr>
+                                                <tr>
+                                                    <th>
+                                                        Mã Hoá Chất
+                                                    </th>
+                                                    <th>
+                                                        Tên Hoá Chất
+                                                    </th>
+                                                    <th>
+                                                        Lượng Nhập
+                                                    </th>
+                                                    <th>
+                                                        Lượng Xuất
+                                                    </th>
+                                                    <th>
+                                                        Lượng Tồn
+                                                    </th>
+                                                    <th>
+                                                        Lượng Thanh Lý
+                                                    </th>
+                                                </tr>
 
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.MAHC)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.TENHC)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LUONGNHAP)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LUONGXUAT)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LUONGTON)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LUONGTHANHLY)
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.MAHC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TENHC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LUONGNHAP)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LUONGXUAT)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LUONGTON)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LUONGTHANHLY)
+                                                    </td>
+                                                </tr>
+                                            </table>
 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                            </li>
+                        </ul>
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TENHC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.THONGSO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CASNO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DONVI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LUONGNHAP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LUONGXUAT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LUONGTON)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LUONGTHANHLY)
-            </td>
-            <td>
-                <p class="btn btn-outline-info btn-sm"><i class="menu-icon mdi mdi-pencil"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.MAHC })</p>
-                @*@Html.ActionLink("Details", "Details", new { id = item.MAHC })*@
-                <p class="btn btn-outline-danger btn-sm"><i class="menu-icon mdi mdi-delete"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.MAHC })</p>
-            </td>
-        </tr>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TENHC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.THONGSO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CASNO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DONVI)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LUONGNHAP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LUONGXUAT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LUONGTON)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LUONGTHANHLY)
+                    </td>
+                    <td>
+                        <p class="btn btn-outline-info btn-sm"><i class="menu-icon mdi mdi-pencil"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.MAHC })</p>
+                        @*@Html.ActionLink("Details", "Details", new { id = item.MAHC })*@
+                        <p class="btn btn-outline-danger btn-sm"><i class="menu-icon mdi mdi-delete"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.MAHC })</p>
+                    </td>
+                </tr>
             }
 
         </table>
@@ -277,3 +281,19 @@
         new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
 
+<script>
+
+    function DownloadExcel() {
+        $.ajax({
+            type: "POST",
+            url: "/HOACHATs/ExcelExport",
+            cache: false,
+            success: function (data) {
+                window.location = '/HOACHATs/Download';
+            },
+            error: function (data) {
+                Materialize.toast("Something went wrong. ", 3000, 'rounded');
+            }
+        });
+    }
+</script>  

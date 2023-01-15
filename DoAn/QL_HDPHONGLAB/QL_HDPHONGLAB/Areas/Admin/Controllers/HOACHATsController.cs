@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Table;
 using PagedList;
 using QL_HDPHONGLAB.Models;
+using System;
+using System.Data;
+using System.Data.Entity;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
 
 namespace QL_HDPHONGLAB.Areas.Admin.Controllers
 {
@@ -80,6 +81,16 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.MAHC = new SelectList(db.CT_HOACHAT, "MAHC", "XUATXU");
+
+            ViewBag.MaLoaiHoaChat = db.LOAIHOACHATs.ToList();
+
+            #region Tự động tăng mã hóa chất
+            // Lấy ra mã hóa chất (HC01)
+            var hoachat = db.HOACHATs.OrderByDescending(n => n.MAHC.Substring(2, n.MAHC.Length)).First();
+            int stt = int.Parse(hoachat.MAHC.Substring(2)) + 1;
+            ViewBag.TTMAHC = "HC" + stt;
+            #endregion
+
             return View();
         }
 
@@ -88,7 +99,7 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHC,TENHC,THONGSO,CASNO,DONVI,LUONGNHAP,LUONGXUAT,LUONGTON")] HOACHAT hOACHAT)
+        public ActionResult Create([Bind(Include = "MAHC,TENHC,THONGSO,CASNO,DONVI,LUONGNHAP,LUONGXUAT,LUONGTON,MALHC")] HOACHAT hOACHAT)
         {
             if (ModelState.IsValid)
             {
@@ -316,6 +327,85 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
             db.HOACHATs.Remove(hOACHAT);
             db.SaveChanges();
             return RedirectToAction("Index_CNTP");
+        }
+
+        // Xuất hóa chất = excel
+        public ActionResult ExcelExport()
+        {
+            try
+            {
+                var lstHoaChat = db.HOACHATs.OrderBy(n => n.MAHC).ToList();
+
+                DataTable Dt = new DataTable();
+                Dt.Columns.Add("Mã Hóa Chất", typeof(string));
+                Dt.Columns.Add("Tên Hóa Chất", typeof(string));
+                Dt.Columns.Add("Loại Hóa Chất", typeof(string));
+                Dt.Columns.Add("Thông Số", typeof(string));
+                Dt.Columns.Add("CASNO", typeof(string));
+                Dt.Columns.Add("Đơn Vị", typeof(string));
+                Dt.Columns.Add("Lượng Nhập", typeof(string));
+                Dt.Columns.Add("Lượng Xuất", typeof(string));
+                Dt.Columns.Add("Lượng Tồn", typeof(string));
+                Dt.Columns.Add("Lượng Thanh Lý", typeof(string));
+                Dt.Columns.Add("Giá Nhập", typeof(string));
+
+                foreach (var data in lstHoaChat)
+                {
+                    DataRow row = Dt.NewRow();
+                    row[0] = data.MAHC;
+                    row[1] = data.TENHC;
+                    row[2] = data.LOAIHOACHAT.TENLHC;
+                    row[3] = data.THONGSO;
+                    row[4] = data.CASNO;
+                    row[5] = data.DONVI;
+                    row[6] = data.LUONGNHAP;
+                    row[7] = data.LUONGXUAT;
+                    row[8] = data.LUONGTON;
+                    row[9] = data.LUONGTHANHLY;
+                    row[10] = data.GIANHAP;
+                    Dt.Rows.Add(row);
+                }
+
+                var memoryStream = new MemoryStream();
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (var excelPackage = new ExcelPackage(memoryStream))
+                {
+                    var worksheet = excelPackage.Workbook.Worksheets.Add("BẢNG HÓA CHẤT");
+                    worksheet.Cells["A1"].Value = "HÓA CHẤT";
+                    worksheet.Cells["A2"].LoadFromDataTable(Dt, true, TableStyles.None);
+                    worksheet.Cells["A2:AN2"].Style.Font.Bold = true;
+                    worksheet.DefaultRowHeight = 18;
+
+
+                    worksheet.Column(2).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    worksheet.Column(6).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    worksheet.Column(7).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    worksheet.DefaultColWidth = 20;
+                    worksheet.Column(2).AutoFit();
+
+                    Session["DownloadExcel_FileManager"] = excelPackage.GetAsByteArray();
+                    return Json("", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Download()
+        {
+            if (Session["DownloadExcel_FileManager"] != null)
+            {
+                byte[] data = Session["DownloadExcel_FileManager"] as byte[];
+                return File(data, "application/octet-stream", "FileManager.xlsx");
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
     }
 }
