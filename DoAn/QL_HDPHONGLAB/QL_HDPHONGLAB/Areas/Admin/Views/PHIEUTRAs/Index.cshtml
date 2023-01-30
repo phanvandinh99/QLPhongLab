@@ -108,7 +108,7 @@
     <div class="button-main">
         <div class="button-dutru">
             <p class="btn btn-outline-primary btn-sm">@Html.ActionLink("Dự Trù", "Index", "DUTRUTHIETBIs")</p>
-            <p onclick="DownloadExcel()" class="btn  btn-success btn-sm">Xuất Thiết Bị</p>
+            <p onclick="DownloadExcel()" class="btn  btn-success btn-sm">Xuất phiểu trả</p>
         </div>
         <div class="button-search">
             @using (Html.BeginForm())
@@ -283,10 +283,10 @@
     function DownloadExcel() {
         $.ajax({
             type: "POST",
-            url: "/THIETBIs/ExcelExport",
+            url: "/PHIEUTRAs/ExcelExport",
             cache: false,
             success: function (data) {
-                window.location = '/THIETBIs/Download';
+                window.location = '/PHIEUTRAs/Download';
             },
             error: function (data) {
                 Materialize.toast("Something went wrong. ", 3000, 'rounded');

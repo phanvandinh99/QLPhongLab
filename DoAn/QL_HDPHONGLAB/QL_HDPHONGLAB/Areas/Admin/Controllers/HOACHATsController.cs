@@ -85,10 +85,18 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
             ViewBag.MaLoaiHoaChat = db.LOAIHOACHATs.ToList();
 
             #region Tự động tăng mã hóa chất
-            // Lấy ra mã hóa chất (HC01)
-            var hoachat = db.HOACHATs.OrderByDescending(n => n.MAHC.Substring(2, n.MAHC.Length)).First();
-            int stt = int.Parse(hoachat.MAHC.Substring(2)) + 1;
-            ViewBag.TTMAHC = "HC" + stt;
+            if (db.HOACHATs.Count() != 0)
+            {
+                // Lấy ra mã hóa chất (HC01)
+                var hoachat = db.HOACHATs.OrderByDescending(n => n.MAHC.Substring(2, n.MAHC.Length)).First();
+                int stt = int.Parse(hoachat.MAHC.Substring(2)) + 1;
+                ViewBag.TTMAHC = "HC" + stt;
+            }
+            else
+            {
+                ViewBag.TTMAHC = "HC01";
+            }
+
             #endregion
 
             return View();

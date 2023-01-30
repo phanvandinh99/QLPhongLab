@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OfficeOpenXml.Table;
+using OfficeOpenXml;
 using PagedList;
 using QL_HDPHONGLAB.Models;
 
@@ -82,6 +85,20 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
         {
             ViewBag.MAHC = new SelectList(db.HOACHATs, "MAHC", "TENHC");
             ViewBag.MAPHLAB = new SelectList(db.PHONGLABs, "MAPHLAB", "TENPHLAB");
+
+            #region Tự động tăng mã phiếu trả
+            if (db.PHIEUTRAs.Count() != 0)
+            {
+                // Lấy ra mã hóa chất (HC01)
+                int hoachat = db.PHIEUTRAs.Max(s => s.MAPT);
+                int stt = hoachat + 1;
+                ViewBag.TTMAPT = stt;
+            }
+            else
+            {
+                ViewBag.TTMAPT = "1";
+            }
+            #endregion
             return View();
         }
 
@@ -172,6 +189,81 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Xuất phiếu trả = excel
+        public ActionResult ExcelExport()
+        {
+            try
+            {
+                var lstPhieuTra = db.PHIEUTRAs.OrderBy(n => n.MAPT).ToList();
+
+                DataTable Dt = new DataTable();
+                Dt.Columns.Add("Mã Phiếu Trả", typeof(string));
+                Dt.Columns.Add("Ngày Trả", typeof(string));
+                Dt.Columns.Add("Nội Dung", typeof(string));
+                Dt.Columns.Add("Hóa Chất", typeof(string));
+                Dt.Columns.Add("Người Trả", typeof(string));
+                Dt.Columns.Add("Phòng Lab", typeof(string));
+                Dt.Columns.Add("Từ", typeof(string));
+                Dt.Columns.Add("Đến", typeof(string));
+                Dt.Columns.Add("Ghi Chú", typeof(string));
+
+                foreach (var data in lstPhieuTra)
+                {
+                    DataRow row = Dt.NewRow();
+                    row[0] = data.MAPT;
+                    row[1] = data.NGAYTRA;
+                    row[2] = data.NOIDUNG;
+                    row[3] = data.HOACHAT.TENHC;
+                    row[4] = data.NGUOITRA;
+                    row[5] = data.PHONGLAB.TENPHLAB;
+                    row[6] = data.TU;
+                    row[7] = data.DEN;
+                    row[8] = data.GHICHU;
+                    Dt.Rows.Add(row);
+                }
+
+                var memoryStream = new MemoryStream();
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (var excelPackage = new ExcelPackage(memoryStream))
+                {
+                    var worksheet = excelPackage.Workbook.Worksheets.Add("BẢNG PHIẾU TRẢ");
+                    worksheet.Cells["A1"].Value = "PHIẾU TRẢ";
+                    worksheet.Cells["A2"].LoadFromDataTable(Dt, true, TableStyles.None);
+                    worksheet.Cells["A2:AN2"].Style.Font.Bold = true;
+                    worksheet.DefaultRowHeight = 18;
+
+
+                    worksheet.Column(2).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    worksheet.Column(6).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    worksheet.Column(7).Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    worksheet.DefaultColWidth = 20;
+                    worksheet.Column(2).AutoFit();
+
+                    Session["DownloadExcel_FileManager"] = excelPackage.GetAsByteArray();
+                    return Json("", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Download()
+        {
+            if (Session["DownloadExcel_FileManager"] != null)
+            {
+                byte[] data = Session["DownloadExcel_FileManager"] as byte[];
+                return File(data, "application/octet-stream", "FileManager.xlsx");
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
     }
 }
