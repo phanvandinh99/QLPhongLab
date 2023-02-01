@@ -273,6 +273,10 @@
     <Compile Include="Models\XUATHOACHAT.cs">
       <DependentUpon>QL_HDPHONGLAB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CT_HOACHAT.cs" />
+    <Compile Include="Model\Model1.cs" />
+    <Compile Include="Model\PHIEUMUON.cs" />
+    <Compile Include="Model\PHONGLAB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

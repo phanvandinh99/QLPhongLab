@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_HDPHONGLABModelStoreContainer" CdmEntityContainer="QL_HDPHONGLABEntities2">
+    <EntitySetMapping Name="CHITIETPHIEUNHAPs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.CHITIETPHIEUNHAP">
+        <MappingFragment StoreEntitySet="CHITIETPHIEUNHAP">
+          <ScalarProperty Name="MAPN" ColumnName="MAPN" />
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="MATB" ColumnName="MATB" />
+          <ScalarProperty Name="MADC" ColumnName="MADC" />
+          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+          <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETPHIEUXUATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.CHITIETPHIEUXUAT">
+        <MappingFragment StoreEntitySet="CHITIETPHIEUXUAT">
+          <ScalarProperty Name="MACTPX" ColumnName="MACTPX" />
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="MATB" ColumnName="MATB" />
+          <ScalarProperty Name="MADC" ColumnName="MADC" />
+          <ScalarProperty Name="NGAYXUAT" ColumnName="NGAYXUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_DUNGCU">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.CT_DUNGCU">
+        <MappingFragment StoreEntitySet="CT_DUNGCU">
+          <ScalarProperty Name="MADC" ColumnName="MADC" />
+          <ScalarProperty Name="SOLO" ColumnName="SOLO" />
+          <ScalarProperty Name="XUATXU" ColumnName="XUATXU" />
+          <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+          <ScalarProperty Name="SOPHIEUNHAP" ColumnName="SOPHIEUNHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_HOACHAT">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.CT_HOACHAT">
+        <MappingFragment StoreEntitySet="CT_HOACHAT">
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="SOLO" ColumnName="SOLO" />
+          <ScalarProperty Name="XUATXU" ColumnName="XUATXU" />
+          <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="SOPHIEUNHAP" ColumnName="SOPHIEUNHAP" />
+          <ScalarProperty Name="DVCUNGCAP" ColumnName="DVCUNGCAP" />
+          <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_THIETBI">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.CT_THIETBI">
+        <MappingFragment StoreEntitySet="CT_THIETBI">
+          <ScalarProperty Name="MATB" ColumnName="MATB" />
+          <ScalarProperty Name="SOLO" ColumnName="SOLO" />
+          <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+          <ScalarProperty Name="XUATXU" ColumnName="XUATXU" />
+          <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+          <ScalarProperty Name="LUONGNHAP" ColumnName="LUONGNHAP" />
+          <ScalarProperty Name="LUONGXUAT" ColumnName="LUONGXUAT" />
+          <ScalarProperty Name="LUONGTON" ColumnName="LUONGTON" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="SOPHIEUNHAP" ColumnName="SOPHIEUNHAP" />
+          <ScalarProperty Name="DVCUNGCAP" ColumnName="DVCUNGCAP" />
+          <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOIMATKHAUs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.DOIMATKHAU">
+        <MappingFragment StoreEntitySet="DOIMATKHAU">
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="NEWPASSWORD" ColumnName="NEWPASSWORD" />
+          <ScalarProperty Name="CONFIRMPASSWORD" ColumnName="CONFIRMPASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUNGCUs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.DUNGCU">
+        <MappingFragment StoreEntitySet="DUNGCU">
+          <ScalarProperty Name="MADC" ColumnName="MADC" />
+          <ScalarProperty Name="TENDC" ColumnName="TENDC" />
+          <ScalarProperty Name="LUONGNHAP" ColumnName="LUONGNHAP" />
+          <ScalarProperty Name="LUONGXUAT" ColumnName="LUONGXUAT" />
+          <ScalarProperty Name="LUONGTON" ColumnName="LUONGTON" />
+          <ScalarProperty Name="LUONGTHANHLY" ColumnName="LUONGTHANHLY" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="GIOSD" ColumnName="GIOSD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUTRUDUNGCUs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.DUTRUDUNGCU">
+        <MappingFragment StoreEntitySet="DUTRUDUNGCU">
+          <ScalarProperty Name="MADC" ColumnName="MADC" />
+          <ScalarProperty Name="TENDC" ColumnName="TENDC" />
+          <ScalarProperty Name="DACTA" ColumnName="DACTA" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUTRUHOACHATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.DUTRUHOACHAT">
+        <MappingFragment StoreEntitySet="DUTRUHOACHAT">
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="TENHC" ColumnName="TENHC" />
+          <ScalarProperty Name="DACTA" ColumnName="DACTA" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUTRUTHIETBIs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.DUTRUTHIETBI">
+        <MappingFragment StoreEntitySet="DUTRUTHIETBI">
+          <ScalarProperty Name="MATB" ColumnName="MATB" />
+          <ScalarProperty Name="TENTB" ColumnName="TENTB" />
+          <ScalarProperty Name="DACTA" ColumnName="DACTA" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIANGVIENs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.GIANGVIEN">
+        <MappingFragment StoreEntitySet="GIANGVIEN">
+          <ScalarProperty Name="MAGV" ColumnName="MAGV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="MAPHBAN" ColumnName="MAPHBAN" />
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="VAITRO" ColumnName="VAITRO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOACHATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.HOACHAT">
+        <MappingFragment StoreEntitySet="HOACHAT">
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="TENHC" ColumnName="TENHC" />
+          <ScalarProperty Name="MALHC" ColumnName="MALHC" />
+          <ScalarProperty Name="THONGSO" ColumnName="THONGSO" />
+          <ScalarProperty Name="CASNO" ColumnName="CASNO" />
+          <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+          <ScalarProperty Name="LUONGNHAP" ColumnName="LUONGNHAP" />
+          <ScalarProperty Name="LUONGXUAT" ColumnName="LUONGXUAT" />
+          <ScalarProperty Name="LUONGTON" ColumnName="LUONGTON" />
+          <ScalarProperty Name="LUONGTHANHLY" ColumnName="LUONGTHANHLY" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIHOACHATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.LOAIHOACHAT">
+        <MappingFragment StoreEntitySet="LOAIHOACHAT">
+          <ScalarProperty Name="MALHC" ColumnName="MALHC" />
+          <ScalarProperty Name="TENLHC" ColumnName="TENLHC" />
+          <ScalarProperty Name="TONGSOLUONG" ColumnName="TONGSOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NCCs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.NCC">
+        <MappingFragment StoreEntitySet="NCC">
+          <ScalarProperty Name="MANCC" ColumnName="MANCC" />
+          <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOIDUNGs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.NGUOIDUNG">
+        <MappingFragment StoreEntitySet="NGUOIDUNG">
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="CONFIRMPASSWORD" ColumnName="CONFIRMPASSWORD" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NSXes">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.NSX">
+        <MappingFragment StoreEntitySet="NSX">
+          <ScalarProperty Name="MANSX" ColumnName="MANSX" />
+          <ScalarProperty Name="TENNSX" ColumnName="TENNSX" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANQUYENs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHANQUYEN">
+        <MappingFragment StoreEntitySet="PHANQUYEN">
+          <ScalarProperty Name="MAQUYEN" ColumnName="MAQUYEN" />
+          <ScalarProperty Name="TENQUYEN" ColumnName="TENQUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUNHAPs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHIEUNHAP">
+        <MappingFragment StoreEntitySet="PHIEUNHAP">
+          <ScalarProperty Name="MAPN" ColumnName="MAPN" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="MANCC" ColumnName="MANCC" />
+          <ScalarProperty Name="NGUOINHAN" ColumnName="NGUOINHAN" />
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="TU" ColumnName="TU" />
+          <ScalarProperty Name="DEN" ColumnName="DEN" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUTRAs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHIEUTRA">
+        <MappingFragment StoreEntitySet="PHIEUTRA">
+          <ScalarProperty Name="MAPT" ColumnName="MAPT" />
+          <ScalarProperty Name="NGAYTRA" ColumnName="NGAYTRA" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="MAHC" ColumnName="MAHC" />
+          <ScalarProperty Name="NGUOITRA" ColumnName="NGUOITRA" />
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="TU" ColumnName="TU" />
+          <ScalarProperty Name="DEN" ColumnName="DEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUXUATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHIEUXUAT">
+        <MappingFragment StoreEntitySet="PHIEUXUAT">
+          <ScalarProperty Name="MAPX" ColumnName="MAPX" />
+          <ScalarProperty Name="THOIGIANXUAT" ColumnName="THOIGIANXUAT" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="NGAYXUAT" ColumnName="NGAYXUAT" />
+          <ScalarProperty Name="MAPHBAN" ColumnName="MAPHBAN" />
+          <ScalarProperty Name="CHAPNHAN" ColumnName="CHAPNHAN" />
+          <ScalarProperty Name="NGUOICHAPNHAN" ColumnName="NGUOICHAPNHAN" />
+          <ScalarProperty Name="TU" ColumnName="TU" />
+          <ScalarProperty Name="DEN" ColumnName="DEN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUXUATPHONGLABs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHIEUXUATPHONGLAB">
+        <MappingFragment StoreEntitySet="PHIEUXUATPHONGLAB">
+          <ScalarProperty Name="MAPXPHLAB" ColumnName="MAPXPHLAB" />
+          <ScalarProperty Name="THOIGIANXUAT" ColumnName="THOIGIANXUAT" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="NGUOIXUAT" ColumnName="NGUOIXUAT" />
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="CHAPNHAN" ColumnName="CHAPNHAN" />
+          <ScalarProperty Name="NGUOICHAPNHAN" ColumnName="NGUOICHAPNHAN" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGBANs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHONGBAN">
+        <MappingFragment StoreEntitySet="PHONGBAN">
+          <ScalarProperty Name="MAPHBAN" ColumnName="MAPHBAN" />
+          <ScalarProperty Name="TENPHBAN" ColumnName="TENPHBAN" />
+          <ScalarProperty Name="DIADIEM" ColumnName="DIADIEM" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGLABs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.PHONGLAB">
+        <MappingFragment StoreEntitySet="PHONGLAB">
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="TENPHLAB" ColumnName="TENPHLAB" />
+          <ScalarProperty Name="DIADIEM" ColumnName="DIADIEM" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SINHVIENs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.SINHVIEN">
+        <MappingFragment StoreEntitySet="SINHVIEN">
+          <ScalarProperty Name="MASV" ColumnName="MASV" />
+          <ScalarProperty Name="TENSV" ColumnName="TENSV" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="MAPXPHLAB" ColumnName="MAPXPHLAB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUKIENs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.SUKIEN">
+        <MappingFragment StoreEntitySet="SUKIEN">
+          <ScalarProperty Name="MASK" ColumnName="MASK" />
+          <ScalarProperty Name="MAPHLAB" ColumnName="MAPHLAB" />
+          <ScalarProperty Name="MAGV" ColumnName="MAGV" />
+          <ScalarProperty Name="BD" ColumnName="BD" />
+          <ScalarProperty Name="KT" ColumnName="KT" />
+          <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THIETBIs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.THIETBI">
+        <MappingFragment StoreEntitySet="THIETBI">
+          <ScalarProperty Name="MATB" ColumnName="MATB" />
+          <ScalarProperty Name="TENTB" ColumnName="TENTB" />
+          <ScalarProperty Name="QUICACH" ColumnName="QUICACH" />
+          <ScalarProperty Name="SLBANDAU" ColumnName="SLBANDAU" />
+          <ScalarProperty Name="SLXUAT" ColumnName="SLXUAT" />
+          <ScalarProperty Name="SLTON" ColumnName="SLTON" />
+          <ScalarProperty Name="SLTHANHLY" ColumnName="SLTHANHLY" />
+          <ScalarProperty Name="TAPHUAN" ColumnName="TAPHUAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XUATHOACHATs">
+      <EntityTypeMapping TypeName="QL_HDPHONGLABModel.XUATHOACHAT">
+        <MappingFragment StoreEntitySet="XUATHOACHAT">
+          <ScalarProperty Name="MACTPX" ColumnName="MACTPX" />
+          <ScalarProperty Name="MAHC_id" ColumnName="MAHC_id" />
+          <ScalarProperty Name="SOLUONGXUAT" ColumnName="SOLUONGXUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
