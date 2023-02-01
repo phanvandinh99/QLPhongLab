@@ -1,0 +1,234 @@
+﻿@model PagedList.IPagedList<QL_HDPHONGLAB.Model.PHIEUMUON>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="~/Areas/Admin/Content/vendor/iconfonts/mdi/css/materialdesignicons.min.css">
+
+@{
+    ViewBag.Title = "Phiếu Mượn";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+
+    #father {
+        width: 100%;
+        overflow: auto;
+    }
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+        table tr:nth-child(odd) {
+            background-color: beige;
+        }
+
+        table tr:nth-child(even) {
+            background-color: blanchedalmond;
+        }
+
+        table tr:nth-child(1) {
+            background-color: aquamarine;
+        }
+
+    .button:hover {
+        background-color: chartreuse;
+    }
+
+    .button-main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-dutru {
+        align-items: flex-start;
+        float: left;
+    }
+
+    .body-content {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    h3.total {
+        text-align: center;
+    }
+
+    .dropdown-divider .nav .nav-item .nav-link {
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-left: auto;
+        margin-right: 0;
+        color: #939393;
+    }
+
+    .rtl .dropdown-divider .nav .nav-item .nav-link {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .dropdown-divider .nav .nav-item .nav-link[aria-expanded="true"]:before {
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+    .dropdown-divider .nav .nav-item.active > .nav-link .menu-title,
+    .dropdown-divider .nav .nav-item.active > .nav-link {
+        color: #fff;
+    }
+
+    .dropdown-divider-mini .dropdown-divider .nav .nav-item .nav-link {
+        display: inline-block;
+        margin-left: 5px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+</style>
+
+<div class="body-content">
+    <h2>DANH SÁCH PHIẾU MƯỢN</h2>
+
+    <div class="button-main">
+        <div class="button-dutru">
+            <p class="btn btn-outline-primary btn-sm">@Html.ActionLink("Dự Trù", "Index", "DUTRUTHIETBIs")</p>
+            <p onclick="DownloadExcel()" class="btn  btn-success btn-sm">Xuất Phiếu Mượn</p>
+        </div>
+        <div class="button-search">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Tìm kiếm: @Html.TextBox("SearchString")
+                    <input class="button" placeholder="Nhập tên..." type="submit" value="Tìm" />
+                </p>
+            }
+        </div>
+        <div class="button-create">
+            <p class="btn btn-outline-danger btn-sm">
+                @Html.ActionLink("Tạo Mới", "Create")
+            </p>
+        </div>
+    </div>
+
+    <div id="father">
+        <table class="table">
+            <tr>
+                <th>
+                    Tên Phòng Lap
+                </th>
+                <th>
+                    Ngày Mượn
+                </th>
+                <th>
+                    Ngày Trả
+                </th>
+                <th>
+                    Nội Dung
+                </th>
+                <th>
+                    Mã Hóa Chất
+                </th>
+                <th>
+                    Người Trả
+                </th>
+                <th>
+                    Từ
+                </th>
+                <th>
+                    Đến
+                </th>
+                <th>
+                    Trạng Thái
+                </th>
+                <th>
+                    Ghi Chú
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PHONGLAB.TENPHLAB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAYMUON)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAYTRA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOIDUNG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MAHC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGUOITRA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DEN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TRANGTHAI)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GHICHU)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MAPM }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MAPM }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MAPM })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <br />
+    <h3 class="total">
+        Tổng số phiếu trả: @ViewBag.total
+    </h3>
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+<script>
+
+    function DownloadExcel() {
+        $.ajax({
+            type: "POST",
+            url: "/PHIEUTRAs/ExcelExport",
+            cache: false,
+            success: function (data) {
+                window.location = '/PHIEUTRAs/Download';
+            },
+            error: function (data) {
+                Materialize.toast("Something went wrong. ", 3000, 'rounded');
+            }
+        });
+    }
+</script>  

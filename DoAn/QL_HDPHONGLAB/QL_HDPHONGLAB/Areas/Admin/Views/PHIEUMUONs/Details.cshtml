@@ -1,0 +1,98 @@
+﻿@model QL_HDPHONGLAB.Model.PHIEUMUON
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Phiếu Mượn</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phòng Lab
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONGLAB.TENPHLAB)
+        </dd>
+
+        <dt>
+            Ngày Mượn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYMUON)
+        </dd>
+
+        <dt>
+            Ngày Trả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYTRA)
+        </dd>
+
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+
+        <dt>
+            MÃ Hóa Chất
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAHC)
+        </dd>
+
+        <dt>
+            Người Trả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOITRA)
+        </dd>
+
+        <dt>
+            Từ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TU)
+        </dd>
+
+        <dt>
+            Đến
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEN)
+        </dd>
+
+        <dt>
+            Trạng Thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANGTHAI)
+        </dd>
+
+        <dt>
+            Ghi Chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPM }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

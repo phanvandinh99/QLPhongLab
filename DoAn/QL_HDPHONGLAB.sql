@@ -672,8 +672,8 @@ INSERT INTO CHITIETPHIEUNHAP VALUES(3, N'HC03', N'TB03', N'DC03', 27, 100000, 27
 INSERT INTO CHITIETPHIEUNHAP VALUES(4, N'HC04', N'TB04', N'DC04', 45, 100000, 28000000)
 GO
 --THÊM BẢNG PHIẾU MƯỢN
-INSERT INTO PHIEUMUON VALUES(1, '01/02/2023', '01/03/2023', N'Mượn hóa chất', 'HC01', N'Lê Vũ', 'LAB01', 'Khu A', 'Khu Thí Nghiệm', 0, N'Vi Phạm');
-INSERT INTO PHIEUMUON VALUES(2, '02/02/2023', '02/03/2023', N'Mượn hóa chất', 'HC02', N'Lê Vũ', 'LAB02', 'Khu B', 'Khu Thí Nghiệm', 1, N'Vi Phạm');
-INSERT INTO PHIEUMUON VALUES(3, '03/02/2023', '03/03/2023', N'Mượn hóa chất', 'HC03', N'Lê Vũ', 'LAB03', 'Khu C', 'Khu Thí Nghiệm', 1, N'Vi Phạm');
-INSERT INTO PHIEUMUON VALUES(4, '04/02/2023', '04/03/2023', N'Mượn hóa chất', 'HC04', N'Lê Vũ', 'LAB04', 'Khu D', 'Khu Thí Nghiệm', 0, N'Vi Phạm');
-INSERT INTO PHIEUMUON VALUES(5, '05/02/2023', '05/03/2023', N'Mượn hóa chất', 'HC05', N'Lê Vũ', 'LAB05', 'Khu E', 'Khu Thí Nghiệm', 1, N'Vi Phạm');
+INSERT INTO PHIEUMUON VALUES(1, '01/02/2023', '01/03/2023', N'Mượn hóa chất', 'HC01', N'Lê Vũ', 'LAB01', 'Khu A', N'Khu Thí Nghiệm', 0, N'Vi Phạm');
+INSERT INTO PHIEUMUON VALUES(2, '02/02/2023', '02/03/2023', N'Mượn hóa chất', 'HC02', N'Lê Vũ', 'LAB02', 'Khu B', N'Khu Thí Nghiệm', 1, N'Vi Phạm');
+INSERT INTO PHIEUMUON VALUES(3, '03/02/2023', '03/03/2023', N'Mượn hóa chất', 'HC03', N'Lê Vũ', 'LAB03', 'Khu C', N'Khu Thí Nghiệm', 1, N'Vi Phạm');
+INSERT INTO PHIEUMUON VALUES(4, '04/02/2023', '04/03/2023', N'Mượn hóa chất', 'HC04', N'Lê Vũ', 'LAB04', 'Khu D', N'Khu Thí Nghiệm', 0, N'Vi Phạm');
+INSERT INTO PHIEUMUON VALUES(5, '05/02/2023', '05/03/2023', N'Mượn hóa chất', 'HC05', N'Lê Vũ', 'LAB05', 'Khu E', N'Khu Thí Nghiệm', 1, N'Vi Phạm');

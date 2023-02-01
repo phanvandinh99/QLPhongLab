@@ -160,6 +160,7 @@
     <Compile Include="Areas\Admin\Controllers\GIANGVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HOACHATsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PHIEUMUONsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhieuNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHIEUTRAsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhieuXuatController.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Areas\Admin\Controllers\PHONGLABsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SINHVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\THIETBIsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\THONGKEsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TrangChuController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaCungCapController.cs" />
@@ -273,10 +275,10 @@
     <Compile Include="Models\XUATHOACHAT.cs">
       <DependentUpon>QL_HDPHONGLAB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CT_HOACHAT.cs" />
-    <Compile Include="Model\Model1.cs" />
+    <Compile Include="Model\HOACHAT.cs" />
     <Compile Include="Model\PHIEUMUON.cs" />
     <Compile Include="Model\PHONGLAB.cs" />
+    <Compile Include="Model\QL_HDPHONGLABEntities3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -532,6 +534,13 @@
     <Content Include="Areas\Admin\Views\PHIEUTRAs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHIEUTRAs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHIEUTRAs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PHIEUMUONs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PHIEUMUONs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PHIEUMUONs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PHIEUMUONs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PHIEUMUONs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\THONGKEs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\THONGKEs\ThongKe.cshtml" />
     <None Include="Assets\js\Ajax\jquery-1.8.0.intellisense.js" />
     <Content Include="Assets\js\Ajax\jquery-1.8.0.js" />
     <Content Include="Assets\js\Ajax\jquery-1.8.0.min.js" />

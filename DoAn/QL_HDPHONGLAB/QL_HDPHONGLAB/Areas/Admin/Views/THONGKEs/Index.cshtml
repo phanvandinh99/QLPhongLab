@@ -1,0 +1,112 @@
+﻿<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="~/Areas/Admin/Content/vendor/iconfonts/mdi/css/materialdesignicons.min.css">
+
+@{
+    ViewBag.Title = "Thống Kê";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style type="text/css">
+
+    #father {
+        width: 100%;
+        overflow: auto;
+    }
+
+    table, th, td {
+        border: 1px solid #868585;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+        table tr:nth-child(odd) {
+            background-color: beige;
+        }
+
+        table tr:nth-child(even) {
+            background-color: blanchedalmond;
+        }
+
+        table tr:nth-child(1) {
+            background-color: aquamarine;
+        }
+
+    .button:hover {
+        background-color: chartreuse;
+    }
+
+    .button-main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-dutru {
+        align-items: flex-start;
+        float: left;
+    }
+
+    .body-content {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    h3.total {
+        text-align: center;
+    }
+
+    .dropdown-divider .nav .nav-item .nav-link {
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-left: auto;
+        margin-right: 0;
+        color: #939393;
+    }
+
+    .rtl .dropdown-divider .nav .nav-item .nav-link {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .dropdown-divider .nav .nav-item .nav-link[aria-expanded="true"]:before {
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+    .dropdown-divider .nav .nav-item.active > .nav-link .menu-title,
+    .dropdown-divider .nav .nav-item.active > .nav-link {
+        color: #fff;
+    }
+
+    .dropdown-divider-mini .dropdown-divider .nav .nav-item .nav-link {
+        display: inline-block;
+        margin-left: 5px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+</style>
+
+
+
+@using (Html.BeginForm("ThongKe", "THONGKEs"))
+{
+    <div class="col-3">
+        <h2>Thống Kê</h2>
+        Từ Ngày: <input type="datetime-local" class="form-control" name="Date_From" required/> &nbsp;&nbsp;
+        Đến Ngày<input type="datetime-local" class="form-control" name="Date_to" required/> <br />
+        <input type="submit" value="Thống Kê" />
+    </div>
+}

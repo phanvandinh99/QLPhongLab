@@ -52,5 +52,7 @@ namespace QL_HDPHONGLAB.Models
         public virtual DbSet<SUKIEN> SUKIENs { get; set; }
         public virtual DbSet<THIETBI> THIETBIs { get; set; }
         public virtual DbSet<XUATHOACHAT> XUATHOACHATs { get; set; }
+
+        public System.Data.Entity.DbSet<QL_HDPHONGLAB.Model.PHIEUMUON> PHIEUMUONs { get; set; }
     }
 }

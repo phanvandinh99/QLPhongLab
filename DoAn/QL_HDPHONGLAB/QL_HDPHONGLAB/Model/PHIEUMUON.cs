@@ -33,7 +33,11 @@ namespace QL_HDPHONGLAB.Model
         [StringLength(50)]
         public string DEN { get; set; }
 
+        public int? TRANGTHAI { get; set; }
+
         public string GHICHU { get; set; }
+
+        public virtual HOACHAT HOACHAT { get; set; }
 
         public virtual PHONGLAB PHONGLAB { get; set; }
     }
