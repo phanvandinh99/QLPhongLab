@@ -15,7 +15,7 @@ namespace QL_HDPHONGLAB.Models
     public partial class PHIEUTRA
     {
         public int MAPT { get; set; }
-        public Nullable<System.DateTime> NGAYTRA { get; set; }
+        public System.DateTime NGAYTRA { get; set; }
         public string NOIDUNG { get; set; }
         public string MAHC { get; set; }
         public string NGUOITRA { get; set; }

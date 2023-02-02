@@ -13,9 +13,9 @@ namespace QL_HDPHONGLAB.Model
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MAPM { get; set; }
 
-        public DateTime? NGAYMUON { get; set; }
+        public DateTime NGAYMUON { get; set; }
 
-        public DateTime? NGAYTRA { get; set; }
+        public DateTime NGAYTRA { get; set; }
 
         public string NOIDUNG { get; set; }
 

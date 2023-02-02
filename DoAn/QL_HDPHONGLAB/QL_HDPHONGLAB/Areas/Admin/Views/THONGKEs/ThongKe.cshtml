@@ -7,7 +7,8 @@
 @{
     ViewBag.Title = "Thống Kê";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    IEnumerable<QL_HDPHONGLAB.Models.PHIEUTRA> lst = ViewBag.lstPhieuTra as IEnumerable<QL_HDPHONGLAB.Models.PHIEUTRA>;
+    IEnumerable<QL_HDPHONGLAB.Models.PHIEUTRA> lstPT = ViewBag.lstPhieuTra as IEnumerable<QL_HDPHONGLAB.Models.PHIEUTRA>;
+    IEnumerable<QL_HDPHONGLAB.Model.PHIEUMUON> lstPM = ViewBag.lstPhieuMuon as IEnumerable<QL_HDPHONGLAB.Model.PHIEUMUON>;
 }
 
 <style type="text/css">
@@ -106,18 +107,150 @@
 <div class="body-content">
     <h2>DANH SÁCH THỐNG KÊ PHIẾU MƯỢN VÀ TRẢ</h2>
 
-    <div class="button-main">
-        <div class="button-search">
-            @using (Html.BeginForm())
+    <!-- #region Phieu Tra -->
+    <a style="float:left" class="total">Phiếu Mượn</a>
+    <div id="father">
+        <table class="table">
+            <tr>
+                <th>
+                    Mã PM
+                </th>
+                <th>
+                    Ngày Mượn
+                </th>
+                <th>
+                    Ngày Trả
+                </th>
+                <th>
+                    Hóa Chất
+                </th>
+                <th>
+                    Người Trả
+                </th>
+                <th>
+                    Từ
+                </th>
+                <th>
+                    Đến
+                </th>
+            </tr>
+
+            @foreach (var item in lstPM)
             {
-                <p>
-                    Tìm kiếm: @Html.TextBox("SearchString")
-                    <input class="button" placeholder="Nhập tên..." type="submit" value="Tìm" />
-                </p>
+                <tr>
+                    <td class="dropdown-divider">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#chitiet" aria-expanded="false">
+                                    @*<i class="typcn typcn-chevron-left menu-arrow"></i>*@
+                                    <span class="menu-title">@Html.DisplayFor(modelItem => item.MAPM)</span>
+                                </a>
+                                <div class="nav">
+                                    <div class="nav-item">
+                                        <div class="collapse" id="chitiet">
+                                            <h4>CHI TIẾT PHIẾU TRẢ</h4>
+                                            <table class="nav flex-column sub-menu">
+
+                                                <tr>
+                                                    <th>
+                                                        Mã Phiếu Trả
+                                                    </th>
+                                                    <th>
+                                                        Ngày Mượn
+                                                    </th>
+                                                    <th>
+                                                        Ngày Trả
+                                                    </th>
+                                                    <th>
+                                                        Nội Dung
+                                                    </th>
+                                                    <th>
+                                                        Mã Hóa Chất
+                                                    </th>
+                                                    <th>
+                                                        Người Trả
+                                                    </th>
+                                                    <th>
+                                                        Mã Phòng Lab
+                                                    </th>
+                                                    <th>
+                                                        Từ
+                                                    </th>
+                                                    <th>
+                                                        Đến
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.MAPM)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NGAYMUON)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NGAYTRA)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NOIDUNG)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.HOACHAT.TENHC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NGUOITRA)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PHONGLAB.TENPHLAB)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TU)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DEN)
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HOACHAT.TENHC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAYTRA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGUOITRA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MAPHLAB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DEN)
+                </tr>
             }
-        </div>
+
+        </table>
     </div>
 
+    <br />
+    <h3 class="total">
+        Tổng số phiếu Mượn: @ViewBag.total_PhieuMuon
+    </h3>
+    <br />
+    <!-- #endregion -->
+
+    <!-- #region Phieu Muon -->
+    <a style="float:left" class="total">Phiếu Trả</a>
     <div id="father">
         <table class="table">
             <tr>
@@ -142,13 +275,9 @@
                 <th>
                     Đến
                 </th>
-                <th>
-                    Các hành động
-                </th>
             </tr>
 
-            @{ var a = 1;}
-            @foreach (var item in lst)
+            @foreach (var item in lstPT)
             {
                 <tr>
                     <td class="dropdown-divider">
@@ -249,11 +378,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DEN)
-                    <td>
-                        <p class="btn btn-outline-info btn-sm"><i class="menu-icon mdi mdi-pencil"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.MAPT })</p>
-                        @*@Html.ActionLink("Details", "Details", new { id = item.MAHC })*@
-                        <p class="btn btn-outline-danger btn-sm"><i class="menu-icon mdi mdi-delete"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.MAPT })</p>
-                    </td>
                 </tr>
             }
 
@@ -262,7 +386,8 @@
 
     <br />
     <h3 class="total">
-        Tổng số phiếu: @ViewBag.total
+        Tổng số phiếu: @ViewBag.total_PhieuTra
     </h3>
     <br />
+    <!-- #endregion -->
 </div>
