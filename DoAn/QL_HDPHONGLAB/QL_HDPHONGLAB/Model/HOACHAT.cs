@@ -31,9 +31,9 @@ namespace QL_HDPHONGLAB.Model
 
         public int? LUONGNHAP { get; set; }
 
-        public int? LUONGXUAT { get; set; }
+        public double? LUONGXUAT { get; set; }
 
-        public int? LUONGTON { get; set; }
+        public double? LUONGTON { get; set; }
 
         public int? LUONGTHANHLY { get; set; }
 

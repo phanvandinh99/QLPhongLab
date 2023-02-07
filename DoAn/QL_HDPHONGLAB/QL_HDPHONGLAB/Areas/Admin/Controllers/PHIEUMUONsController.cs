@@ -107,10 +107,15 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPM,NGAYMUON,NGAYTRA,NOIDUNG,MAHC,NGUOITRA,MAPHLAB,TU,DEN,TRANGTHAI,GHICHU")] PHIEUMUON pHIEUMUON)
+        public ActionResult Create([Bind(Include = "MAPM,NGAYMUON,NGAYTRA,NOIDUNG,MAHC,NGUOITRA,MAPHLAB,TU,DEN,TRANGTHAI,GHICHU,SLMUON")] PHIEUMUON pHIEUMUON)
         {
             if (ModelState.IsValid)
             {
+                // Trừ số lượng trong kho hóa chất
+                var hoaChat = db.HOACHAT.SingleOrDefault(n => n.MAHC == pHIEUMUON.MAHC);
+                hoaChat.LUONGTON = hoaChat.LUONGTON - pHIEUMUON.SLMUON;
+                hoaChat.LUONGXUAT += Convert.ToInt32(pHIEUMUON.SLMUON);
+
                 db.PHIEUMUON.Add(pHIEUMUON);
                 db.SaveChanges();
                 return RedirectToAction("Index");

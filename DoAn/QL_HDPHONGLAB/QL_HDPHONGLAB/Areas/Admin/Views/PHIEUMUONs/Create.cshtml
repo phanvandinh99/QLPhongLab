@@ -38,7 +38,7 @@
             <div class="form-group">
                 Ngày Mượn
                 <div class="col-md-10">
-                    <input type="datetime-local" name="NGAYMUON" class="form-control"/>
+                    <input type="datetime-local" name="NGAYMUON" class="form-control" />
                     @Html.ValidationMessageFor(model => model.NGAYMUON, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -80,6 +80,14 @@
                 <div class="col-md-10">
                     @Html.DropDownList("MAPHLAB", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.MAPHLAB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Số Lượng Mượn (ml)
+                <div class="col-md-10">
+                    <input type="number" name="SLMUON" class="form-control" min="0" max="1000" required value="1"/>
+                    @Html.ValidationMessageFor(model => model.SLMUON, "", new { @class = "text-danger" })
                 </div>
             </div>
 

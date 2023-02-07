@@ -20,6 +20,7 @@ namespace QL_HDPHONGLAB.Models
         public string MAHC { get; set; }
         public string NGUOITRA { get; set; }
         public string MAPHLAB { get; set; }
+        public int? SLTRA { get; set; }
         public string TU { get; set; }
         public string DEN { get; set; }
         public string GHICHU { get; set; }

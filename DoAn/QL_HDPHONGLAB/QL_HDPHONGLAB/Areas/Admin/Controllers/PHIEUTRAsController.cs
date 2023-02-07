@@ -11,12 +11,14 @@ using OfficeOpenXml.Table;
 using OfficeOpenXml;
 using PagedList;
 using QL_HDPHONGLAB.Models;
+using QL_HDPHONGLAB.Model;
 
 namespace QL_HDPHONGLAB.Areas.Admin.Controllers
 {
     public class PHIEUTRAsController : Controller
     {
         private QL_HDPHONGLABEntities db = new QL_HDPHONGLABEntities();
+        private QL_HDPHONGLABEntities3 db3 = new QL_HDPHONGLABEntities3();
 
         // GET: Admin/PHIEUTRAs
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
@@ -107,10 +109,15 @@ namespace QL_HDPHONGLAB.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPT,NGAYTRA,NOIDUNG,MAHC,NGUOITRA,MAPHLAB,TU,DEN,GHICHU")] PHIEUTRA pHIEUTRA)
+        public ActionResult Create([Bind(Include = "MAPT,NGAYTRA,NOIDUNG,MAHC,NGUOITRA,MAPHLAB,TU,DEN,GHICHU,SLTRA")] PHIEUTRA pHIEUTRA)
         {
             if (ModelState.IsValid)
             {
+                // Cộng số lượng trong kho hóa chất
+                var hoaChat = db.HOACHATs.SingleOrDefault(n => n.MAHC == pHIEUTRA.MAHC);
+                hoaChat.LUONGTON = hoaChat.LUONGTON + pHIEUTRA.SLTRA;
+                hoaChat.LUONGXUAT -= pHIEUTRA.SLTRA;
+
                 db.PHIEUTRAs.Add(pHIEUTRA);
                 db.SaveChanges();
                 return RedirectToAction("Index");

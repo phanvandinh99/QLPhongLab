@@ -27,6 +27,8 @@ namespace QL_HDPHONGLAB.Model
         [StringLength(20)]
         public string MAPHLAB { get; set; }
 
+        public double? SLMUON { get; set; }
+
         [StringLength(50)]
         public string TU { get; set; }
 
